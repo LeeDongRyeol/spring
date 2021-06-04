@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						">
+	
+	<context:component-scan base-package="spring.di.ui, spring.di.entity" />
+	
+	<!-- 객체를 만들면서 xml에 빠져있는지 확인하게 한다. Autowired 어노테이션 된것들을 확인한다. -->
+	<!-- <context:annotation-config /> --> <!-- component-scan이 있으면 없어도 된다.  -->
+						
+	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" />
+	<!-- Exam exam = new NewlecExam();  -->
+	<!-- <bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" />
+	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="20" p:eng="20" /> -->
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
+		<property name="kor">
+			<value>40</value>
+		</property>
+		<property name="eng" value="10" />
+		<property name="math" value="10" />
+		<property name="com" value="10" />
+		<constructor-arg index="0" value="10"/>
+		<constructor-arg index="1" value="20"/>
+		<constructor-arg index="3" value="30"/>
+		<constructor-arg index="2" value="40"/>
+		<constructor-arg name="kor" value="10" />
+		<constructor-arg name="eng" value="20" />
+		<constructor-arg name="math" value="30" />
+		<constructor-arg name="com" value="40" />
+	</bean> -->
+	<!-- ExamConsole console = new GridExamConsole(); -->
+	<!-- <bean id="console" class="spring.di.ui.InlineExamConsole">
+		console.setExam(exam);
+		<property name="exam" ref="exam" /> 
+	</bean> -->
+	
+	<!--  <property name="exam" ref="exam" /> 주석처리는  Autowired 위해서 주석처리  -->	
+	
+	<!-- <util:list id="exams" list-class="java.util.ArrayList">
+		<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" />
+		<ref bean="exam" />
+	</util:list> -->
+	
+	<!-- <bean id="exams" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" />
+				<ref bean="exam" />
+			</list>
+		</constructor-arg>
+	</bean> -->
+	
+</beans>
