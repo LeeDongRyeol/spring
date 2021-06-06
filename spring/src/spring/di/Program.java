@@ -29,6 +29,7 @@ public class Program {
 		// Java Configuration
 		ApplicationContext context = 
 				new AnnotationConfigApplicationContext(NewlecDIConfig.class);
+				// new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		
 		// Exam exam = context.getBean(Exam.class);
 		// System.out.println(exam.toString());
